@@ -8,7 +8,7 @@ services:
     volumes:
       - ./:/var/www
     ports:
-      - "8080:80"
+      - "8888:80"
     links:
       - app
 
@@ -25,8 +25,16 @@ services:
       - "DB_HOST=db"
   db:
     image: mysql:5.7
+    volumes:
+      - dbdata:var/lib/mysql
     environment:
       - "MYSQL_ROOT_PASSWORD=secret"
       - "MYSQL_DATABASE=laravel-blog"
     ports:
       - "33061:3306"
+
+  cache:
+    image:redis:3.0-alpine
+
+volumes:
+  dbdata:
