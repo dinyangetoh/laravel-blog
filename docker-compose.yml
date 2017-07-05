@@ -26,7 +26,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - dbdata:var/lib/mysql
+      - dbdata: var/lib/mysql
     environment:
       - "MYSQL_ROOT_PASSWORD=secret"
       - "MYSQL_DATABASE=laravel-blog"
@@ -34,7 +34,7 @@ services:
       - "33061:3306"
 
   cache:
-    image:redis:3.0-alpine
+    image: redis:3.0-alpine
 
 volumes:
   dbdata:
