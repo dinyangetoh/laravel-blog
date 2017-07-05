@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: web.docker
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8080:80"
+    links:
+      - app
+
+  app:
+    build:
+      context: ./
+      dockerfile: app.docker
+    volumes:
+      - ./:/var/www
+    links:
+      - db
+    environment:
+      - "DB_HOST=3306"
+      - "DB_HOST=db"
+  db:
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MYSQL_DATABASE=laravel-blog"
+    ports:
+      - "33061:3306"
