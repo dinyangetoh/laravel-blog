@@ -21,6 +21,11 @@ Route::get('companies', 'CompanyController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('posts', 'PostController@index');
-Route::get('post/new', 'PostController@new');
+Route::group(['middleware' => 'auth'], function () {
+    
+    Route::get('post/new', 'PostController@new');
+
+    Route::post('post/category/new','PostController@newCategory');
+
+});

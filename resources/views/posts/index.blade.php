@@ -32,7 +32,9 @@
         <h2>All Posts</h2>
     </div>
     <div class="col-sm-4 text-right">
+        @if(!auth()->guest())
         <a href="{{ url('post/new')}}" class="btn btn-primary">+ New Post</a>
+        @endif
     </div>
 </div>
 
