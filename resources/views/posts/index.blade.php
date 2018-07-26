@@ -26,7 +26,15 @@
         color: orange;
     }
 </style>
-<h2>Recent Posts</h2>
+
+<div class="row">
+    <div class="col-sm-8">
+        <h2>All Posts</h2>
+    </div>
+    <div class="col-sm-4 text-right">
+        <a href="{{ url('post/new')}}" class="btn btn-primary">+ New Post</a>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-6">
