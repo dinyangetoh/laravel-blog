@@ -21,3 +21,7 @@ Route::get('companies', 'CompanyController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('posts', function(){
+    return view('posts.index');
+});
